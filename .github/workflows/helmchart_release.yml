@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Helm Chart Release
 
 # Controls when the workflow will run
 on:
@@ -35,7 +35,9 @@ jobs:
           #token: # optional, default is ${{ github.token }}
           # Set the download base URL
           #downloadBaseURL: # optional, default is https://get.helm.sh
-          
+
+      - name: Helm packaging and reposotiry indexing
+        run: ./scripts/helm_packaging_and_repo_indexing.sh     
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
