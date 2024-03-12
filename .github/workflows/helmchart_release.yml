@@ -26,22 +26,16 @@ jobs:
       - name: Helm tool installer
         uses: Azure/setup-helm@v4
         with:
-          # Version of helm
           version: latest
-          # GitHub token. Used to be required to fetch the latest version
-          #token: # optional, default is ${{ github.token }}
-          # Set the download base URL
-          #downloadBaseURL: # optional, default is https://get.helm.sh
 
       - name: Helm packaging and reposotiry indexing
         run: ./.github/scripts/helm_packaging_and_repo_indexing.sh     
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
+        # Only run on main branch push (e.g. after pull request merge).
+        if: github.event_name == 'push'
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "username@users.noreply.github.com"
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push

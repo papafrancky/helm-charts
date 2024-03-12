@@ -5,8 +5,8 @@ HelmPackagesDir="${GITHUB_WORKSPACE}/packages"   # Helm packaged Charts (.tgz)
 
 # Package Helm Charts
 ChartsList=$( find ${HelmChartsDir} -type d -maxdepth 1 | grep -v charts$ )
+printf "Packaging the Helm charts ...\n"
 for Chart in $( echo ${ChartsList} ); do
-  printf "Packaging the Helm charts ...\n"
   helm package ${Chart} --destination ${HelmPackagesDir}
 done
 
