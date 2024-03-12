@@ -29,11 +29,11 @@ jobs:
         uses: Azure/setup-helm@v4
         with:
           # Version of helm
-          version: # default is latest
+          version: latest
           # GitHub token. Used to be required to fetch the latest version
-          token: # optional, default is ${{ github.token }}
+          #token: # optional, default is ${{ github.token }}
           # Set the download base URL
-          downloadBaseURL: # optional, default is https://get.helm.sh
+          #downloadBaseURL: # optional, default is https://get.helm.sh
           
 
       # Runs a single command using the runners shell
