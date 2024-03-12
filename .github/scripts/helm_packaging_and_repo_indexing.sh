@@ -1,13 +1,13 @@
 #!/bin/sh
 
-HelmChartsDir="./charts"       # Helm Charts Directory (files)
-HelmPackagesDir="./packages"   # Helm packaged Charts (.tgz)
+HelmChartsDir="${GITHUB_WORKSPACE}/charts"       # Helm Charts Directory (files)
+HelmPackagesDir="${GITHUB_WORKSPACE}/packages"   # Helm packaged Charts (.tgz)
 
 # Package Helm Charts
-ChartsList=$( find ${HelmChartsDir} -type d -maxdepth 1 | grep -v ^\.\.helm\/charts$ )
+ChartsList=$( find ${HelmChartsDir} -type d -maxdepth 1 | grep -v charts$ )
 for Chart in $( echo ${ChartsList} ); do
   printf "Packaging the Helm charts ...\n"
-  helm package ${Chart} --destination ./helm/packages
+  helm package ${Chart} --destination ${HelmPackagesDir}
 done
 
 # Repo Index
