@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  nginx:
+  - apiVersion: v2
+    appVersion: 1.16.3
+    created: "2024-03-13T19:36:50.964091819Z"
+    description: A Helm chart for Kubernetes
+    digest: c5137f0bf46273cf3d8b182a73197451ed29360d81461b378a082fa821f64f4b
+    name: nginx
+    type: application
+    urls:
+    - nginx-0.1.0.tgz
+    version: 0.1.0
+  silly-webapp:
+  - apiVersion: v2
+    appVersion: "2.4"
+    created: "2024-03-13T19:36:50.964436731Z"
+    description: A simple web application exposing credentials retrieved from a Vault
+      instance through the External Secrets Operator (ESO).
+    digest: faac8fcef4d14df7a6e22d10555fd763a3c0d66adebae2c5dd5d255d8c749dbf
+    name: silly-webapp
+    type: application
+    urls:
+    - silly-webapp-0.1.2.tgz
+    version: 0.1.2
+generated: "2024-03-13T19:36:50.963596415Z"
