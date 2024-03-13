@@ -33,7 +33,7 @@ jobs:
 
       - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
         # Only run on main branch push (e.g. after pull request merge).
-        if: github.event_name == 'push'
+        #if: github.event_name == 'push'
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
